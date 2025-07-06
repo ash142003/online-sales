@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- THIS IS THE MODIFIED FUNCTION ---
     const sendWhatsAppOrder = (name, phone, address) => {
         const whatsappNumber = '917598242759';
-        let message = `*NEW ORDER from Chitra Jawli Store*\n\n*Customer:* ${name}\n*Phone:* ${phone}\n\n*Items:*\n----------------------\n`;
+        let message = `*NEW ORDER from KAILASH*\n\n*Customer:* ${name}\n*Phone:* ${phone}\n\n*Items:*\n----------------------\n`;
         
         Object.entries(cart).forEach(([key, item]) => {
             const p = products.find(p => p.id === item.productId);
