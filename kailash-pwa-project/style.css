@@ -52,8 +52,8 @@ body {
 
 .btn-accent:hover {
   background-color: #e68a00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255,153,0,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 153, 0, 0.35);
 }
 
 .text-accent {
@@ -159,4 +159,83 @@ body {
   background-color: #128C7E;
   border-color: #128C7E;
   transform: translateY(-2px);
+}
+
+/* --- PROFESSIONAL ADMIN LOGIN PAGE STYLES --- */
+#login-wrapper {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  background-image: linear-gradient(to right, #232f3e, #354d69);
+  overflow: hidden;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-load {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.login-box {
+    border-radius: 1rem;
+}
+
+@keyframes zoomin {
+    0% { background-size: 100% 100%; }
+    50% { background-size: 110% 110%; }
+    100% { background-size: 100% 100%; }
+}
+
+.login-visual-panel {
+    background-image: linear-gradient(rgba(35, 47, 62, 0.7), rgba(35, 47, 62, 0.7)), url('https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    animation: zoomin 25s ease-in-out infinite;
+}
+
+.login-branding-text {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.login-branding-text .display-3 {
+    font-weight: 700;
+}
+
+.login-form-panel {
+    background-color: #ffffff;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.form-control:focus {
+    border-color: #ffb84d;
+    box-shadow: 0 0 0 0.25rem rgba(255, 153, 0, 0.25);
+}
+
+.form-floating > label i {
+    opacity: 0.6;
+}
+
+#togglePassword {
+    z-index: 5;
+}
+
+@media (max-width: 991.98px) {
+    .login-visual-panel {
+        min-height: 250px;
+        border-radius: 1rem 1rem 0 0;
+    }
+    .login-form-panel {
+        border-radius: 0 0 1rem 1rem;
+    }
 }

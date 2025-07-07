@@ -5,28 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - KAILASH</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Using a newer version of bootstrap icons for better icon support -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">KAILASH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">View Store</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-                </ul>
+    <!-- 
+        NEW PROFESSIONAL LOGIN WRAPPER
+        This takes up the full screen and is shown by default.
+    -->
+    <div id="login-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12">
+                    <div class="card login-box shadow-lg o-hidden border-0 my-5 animate-on-load">
+                        <div class="row g-0">
+                            <!-- Left Side: Visual/Branding Panel -->
+                            <div class="col-lg-6 d-none d-lg-flex login-visual-panel">
+                                <div class="login-branding-text">
+                                    <h1 class="display-3">KAILASH</h1>
+                                    <p class="lead">Admin Control Panel</p>
+                                </div>
+                            </div>
+                            <!-- Right Side: Login Form Panel -->
+                            <div class="col-lg-6 login-form-panel">
+                                <div class="p-4 p-md-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form id="adminLoginForm" novalidate>
+                                        <div id="login-error" class="alert alert-danger d-none" role="alert"></div>
+                                        
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="adminUser" placeholder="Username" required autofocus>
+                                            <label for="adminUser"><i class="bi bi-person-fill me-2"></i>Username</label>
+                                            <div class="invalid-feedback">Please enter your username.</div>
+                                        </div>
+
+                                        <div class="input-group form-floating mb-3">
+                                            <input type="password" class="form-control" id="adminPass" placeholder="Password" required>
+                                            <label for="adminPass"><i class="bi bi-key-fill me-2"></i>Password</label>
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Toggle password visibility">
+                                                <i class="bi bi-eye-slash"></i>
+                                            </button>
+                                            <div class="invalid-feedback">Please enter your password.</div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-accent w-100 btn-lg py-2 mt-3" id="loginButton">
+                                            <span class="btn-text">Login</span>
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="index.html">← Go back to the Store</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- This div will contain the entire admin panel and will be hidden by default -->
+
+    <!-- 
+        YOUR ORIGINAL ADMIN CONTENT
+        This is hidden by default and shown after successful login.
+        The navbar is now inside this div.
+    -->
     <div id="admin-content" style="display: none;">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">KAILASH ADMIN</a>
+                <button class="btn btn-outline-light" id="logoutBtn">Logout <i class="bi bi-box-arrow-right"></i></button>
+            </div>
+        </nav>
+        
         <!-- SECTION 1: ADD NEW PRODUCT -->
         <section class="py-5">
             <div class="container">
@@ -58,9 +114,7 @@
                 </div>
             </div>
         </section>
-
         <hr class="my-0">
-
         <!-- SECTION 2: MANAGE EXISTING PRODUCTS -->
         <section class="py-5 bg-light">
             <div class="container">
@@ -73,57 +127,74 @@
                 </div>
             </div>
         </section>
-
         <footer class="footer text-center py-3">
-            <p>Shop Address: 123 Traditional Lane, Chennai, Tamil Nadu 600001</p>
-            <p>Phone: +91 75982 42759 | <a href="https://wa.me/917598242759" class="text-accent" target="_blank">Chat on WhatsApp</a></p>
-            <p>© 2025 The KAILASH | All Rights Reserved | Made with ❤️ in Tamil Nadu</p>
+            <p>© 2025 The KAILASH | All Rights Reserved</p>
         </footer>
-    </div>
-
-    <!-- This div will be shown if login fails -->
-    <div id="access-denied" class="container text-center py-5" style="display: none;">
-        <h1 class="text-danger">Access Denied</h1>
-        <p class="lead">The credentials you entered are incorrect.</p>
-        <a href="index.html" class="btn btn-primary mt-3">Go back to the Store</a>
     </div>
 
 
     <script>
-        // --- NEW: LOGIN GATEKEEPER LOGIC ---
-
-        // !!! SET YOUR USERNAME AND PASSWORD HERE !!!
+        // --- UPGRADED PROFESSIONAL LOGIN SCRIPT ---
         const ADMIN_USERNAME = 'MUKESH';
-        const ADMIN_PASSWORD = '0000'; // Change this to a secure password!
+        const ADMIN_PASSWORD = '0000'; // IMPORTANT: Change this password!
+
+        const loginWrapper = document.getElementById('login-wrapper');
+        const adminContent = document.getElementById('admin-content');
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const loginErrorDiv = document.getElementById('login-error');
+        const loginButton = document.getElementById('loginButton');
 
         function checkLogin() {
-            // sessionStorage is temporary storage that clears when the browser tab is closed.
             if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
                 showAdminPanel();
             } else {
-                promptForLogin();
+                loginWrapper.style.display = 'block';
+                adminContent.style.display = 'none';
             }
         }
 
-        function promptForLogin() {
-            const enteredUser = prompt('Enter Admin Username:');
-            const enteredPass = prompt('Enter Admin Password:');
-
-            if (enteredUser === ADMIN_USERNAME && enteredPass === ADMIN_PASSWORD) {
-                sessionStorage.setItem('isAdminLoggedIn', 'true');
-                showAdminPanel();
-            } else {
-                // Show the access denied message
-                document.getElementById('access-denied').style.display = 'block';
-            }
+        function handleLogout() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            location.reload(); // Reload the page to show the login screen
         }
 
-        // --- All the original admin panel code is now inside this function ---
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            adminLoginForm.classList.add('was-validated');
+            if (!adminLoginForm.checkValidity()) {
+                return;
+            }
+
+            loginButton.disabled = true;
+            loginButton.innerHTML = `<div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></div>`;
+            const enteredUser = document.getElementById('adminUser').value;
+            const enteredPass = document.getElementById('adminPass').value;
+
+            // Simulate a network delay for better UX
+            setTimeout(() => {
+                if (enteredUser === ADMIN_USERNAME && enteredPass === ADMIN_PASSWORD) {
+                    sessionStorage.setItem('isAdminLoggedIn', 'true');
+                    showAdminPanel();
+                } else {
+                    loginErrorDiv.textContent = 'Incorrect username or password.';
+                    loginErrorDiv.classList.remove('d-none');
+                    loginButton.disabled = false;
+                    loginButton.innerHTML = `<span class="btn-text">Login</span>`;
+                }
+                adminLoginForm.classList.remove('was-validated');
+            }, 500);
+        }
+
         function showAdminPanel() {
-            // Reveal the hidden admin content
-            document.getElementById('admin-content').style.display = 'block';
+            loginWrapper.style.display = 'none';
+            adminContent.style.display = 'block';
 
-            // Now, run all the code to make the panel work
+            // Attach logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+            // --- Your existing admin panel script starts here ---
             const addProductForm = document.getElementById('addProductForm');
             const submitButton = document.getElementById('submitButton');
             const messageAddDiv = document.getElementById('message-add');
@@ -145,11 +216,11 @@
                 }
                 products.forEach(product => {
                     const listItem = document.createElement('li');
-                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center flex-wrap';
                     listItem.innerHTML = `
-                        <span>
+                        <span class="d-flex align-items-center mb-2 mb-md-0">
                             <img src="${product.image}" alt="" width="40" height="40" class="me-3 rounded object-fit-cover">
-                            <strong>${product.name}</strong> <small class="text-muted">(${product.category})</small>
+                            <strong>${product.name}</strong> <small class="text-muted ms-2">(${product.category})</small>
                         </span>
                         <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${product.id})">
                             <i class="bi bi-trash-fill"></i> Delete
@@ -181,10 +252,8 @@
                     if (uploadOption.checked) {
                         const file = imageUploadInput.files[0];
                         if (!file) throw new Error("Please select a file to upload.");
-                        const apiKey = 'def06ac7b40303b74e8e7aadbe3bdc90'; // PASTE YOUR KEY!
-                        if (apiKey === 'YOUR_IMGBB_API_KEY_HERE') {
-                           throw new Error('imgbb API key is not set.');
-                        }
+                        const apiKey = 'def06ac7b40303b74e8e7aadbe3bdc90';
+                        if (apiKey === 'YOUR_IMGBB_API_KEY_HERE') throw new Error('imgbb API key is not set.');
                         const formData = new FormData();
                         formData.append('image', file);
                         const response = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, { method: 'POST', body: formData });
@@ -210,7 +279,7 @@
                     let products = JSON.parse(localStorage.getItem('products')) || [];
                     products.push(product);
                     localStorage.setItem('products', JSON.stringify(products));
-                    messageAddDiv.innerHTML = `<div class="alert alert-success">Product added!</div>`;
+                    messageAddDiv.innerHTML = `<div class="alert alert-success">Product added successfully!</div>`;
                     addProductForm.reset();
                     renderManageProducts();
                 } catch (error) {
@@ -218,6 +287,7 @@
                 } finally {
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
+                    setTimeout(() => messageAddDiv.innerHTML = '', 4000);
                 }
             });
 
@@ -231,8 +301,17 @@
             renderManageProducts();
         }
 
-        // --- Start the login check when the page loads ---
+        // --- Attach Event Listeners ---
         document.addEventListener('DOMContentLoaded', checkLogin);
+        adminLoginForm.addEventListener('submit', handleAdminLogin);
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('adminPass');
+            const icon = this.querySelector('i');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            icon.classList.toggle('bi-eye');
+            icon.classList.toggle('bi-eye-slash');
+        });
     </script>
 </body>
 </html>
