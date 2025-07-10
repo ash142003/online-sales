@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App - KAILASH</title>
+
+    <!-- PWA and Styling links to match your site -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff9900">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Consistent Navbar from your index.html -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">KAILASH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="add-product.html">Admin Panel</a></li>
+                    <!-- The "active" class highlights this page in the navbar -->
+                    <li class="nav-item"><a class="nav-link active" href="download.html"><i class="bi bi-download me-1"></i> Download App</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="py-5">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">Install KAILASH App</h1>
+            <p class="lead text-muted mb-5">Choose the best method for your device to get our app on your phone.</p>
+
+            <div class="row justify-content-center g-4">
+
+                <!-- Column 1: For Android APK Download -->
+                <div class="col-md-5">
+                    <div class="card shadow-sm h-100 border-success border-2">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <i class="bi bi-android2 fs-1 text-success mb-3"></i>
+                            <h3 class="card-title">Download for Android</h3>
+                            <p class="card-text">Get the official Android app package (.apk) for the most integrated experience.</p>
+                            
+                            <!-- 
+                                !!! IMPORTANT !!!
+                                Replace the placeholder link below with the REAL download link to your APK file.
+                                You can upload your APK to your GitHub repo and copy its "raw" link.
+                            -->
+                            <a href="https://github.com/ash142003/online-web/raw/main/kailash-app.apk" class="btn btn-success btn-lg mt-auto">
+                                <i class="bi bi-download me-2"></i>Download .apk File
+                            </a>
+
+                            <div class="alert alert-warning small mt-3 mb-0">
+                                <i class="bi bi-exclamation-triangle-fill"></i> You may need to enable **"Install from unknown sources"** in your Android settings.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: For iPhone and PWA "Add to Home Screen" -->
+                <div class="col-md-5">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <i class="bi bi-apple fs-1 text-secondary mb-3"></i>
+                            <h3 class="card-title">For iPhone & Other Devices</h3>
+                            <p class="card-text">Follow these steps to add the app icon directly to your home screen.</p>
+                            <ol class="list-group list-group-numbered text-start mt-4">
+                                <li class="list-group-item">Open this website in the <strong>Safari</strong> browser.</li>
+                                <li class="list-group-item">Tap the 'Share' button <i class="bi bi-box-arrow-up"></i> at the bottom.</li>
+                                <li class="list-group-item">Scroll down and tap on <strong>'Add to Home Screen'</strong>.</li>
+                                <li class="list-group-item">Tap <strong>'Add'</strong> in the top-right corner.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Consistent Footer from your index.html -->
+    <footer id="contact" class="footer text-center py-3 mt-5">
+        <p>Shop Address: 123 Traditional Lane, Chennai, Tamil Nadu 600001</p>
+        <p>Phone: +91 75982 42759 | <a href="https://wa.me/917598242759" class="text-accent" target="_blank">Chat on WhatsApp</a></p>
+        <p>© 2025 The KAILASH | All Rights Reserved | Made with ❤️ in Tamil Nadu</p>
+    </footer>
+
+</body>
+</html>
